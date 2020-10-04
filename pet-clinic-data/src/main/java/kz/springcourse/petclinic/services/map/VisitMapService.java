@@ -2,9 +2,11 @@ package kz.springcourse.petclinic.services.map;
 
 import kz.springcourse.petclinic.model.Visit;
 import kz.springcourse.petclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
