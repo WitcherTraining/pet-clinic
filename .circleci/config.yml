@@ -14,20 +14,19 @@ jobs:
       - run:
           name: Install Dependencies
           command: mvn dependency:go-offline --settings 'pom.xml'
-      - run:
-          name: Run Tests
-          command: mvn verify --settings 'pom.xml'
+
+      - run: mvn install -DskipTests
+
+      - run: mvn dependency:go-offline
+
       - save_cache:
           paths:
             - ~/.m2
           key: maven-{{ checksum "/tmp/maven_cache_seed" }}
-      - store_test_results:
-          path: target/surefire-reports
-workflows:
-  maven_test:
-    jobs:
-      - maven/install
-  version: 2
+            -
+
+      # run tests!
+      - run: mvn integration-test
 
 # Original config.yml file:
 # version: 2.1
