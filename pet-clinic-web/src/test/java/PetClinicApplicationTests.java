@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
-@SpringBootTest
+//@SpringBootTest - instead it, use this
+@ContextConfiguration
 class PetClinicApplicationTests {
 
     @Test
